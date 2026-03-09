@@ -1,0 +1,26 @@
+START
+    WHILE True
+        DISPLAY "1 Add Equipment"
+        DISPLAY "2 Update Usage"
+        DISPLAY "3 Display Equipment"
+        DISPLAY "4 Daily Report"
+        DISPLAY "5 Exit"
+        
+        INPUT userChoice
+        
+        IF userChoice == 1 THEN
+            CALL Add Equipment Module
+        ELSE IF userChoice == 2 THEN
+            CALL Update Usage Module
+        ELSE IF userChoice == 3 THEN
+            CALL Display Equipment
+        ELSE IF userChoice == 4 THEN
+            CALL Generate Report
+        ELSE IF userChoice == 5 THEN
+            DISPLAY "End Program"
+            EXIT WHILE
+        END IF
+        
+        DISPLAY "Return to Menu"
+    END WHILE
+END

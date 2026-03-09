@@ -1,0 +1,19 @@
+START
+    INPUT watts, hours
+    energy = (watts / 1000) * hours
+    ADD energy TO totalEnergy
+    
+    IF totalEnergy > 8 THEN
+        apply 20% surcharge
+    END IF
+    
+    cost = energy * 0.50
+    
+    DISPLAY totalEnergy
+    DISPLAY cost
+    DISPLAY surcharge
+END
+
+
+
+

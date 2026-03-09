@@ -1,0 +1,27 @@
+FUNCTION DisplayEquipment()
+
+IF equipmentCount == 0 THEN
+    DISPLAY "No equipment available."
+    RETURN
+ENDIF
+
+FOR i = 0 TO equipmentCount - 1
+
+    energy = (watts[i] / 1000) * hoursUsed[i]
+
+    IF temperature[i] > maxTemp[i] THEN
+        status = "CRITICAL"
+    ELSE IF temperature[i] >= (0.9 * maxTemp[i]) THEN
+        status = "WARNING"
+    ELSE
+        status = "NORMAL"
+    ENDIF
+
+    DISPLAY "ID:", equipmentID[i]
+    DISPLAY "Category:", category[i]
+    DISPLAY "Energy Used:", energy, "kWh"
+    DISPLAY "Status:", status
+
+ENDFOR
+
+END FUNCTION

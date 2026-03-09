@@ -1,0 +1,37 @@
+FUNCTION GenerateDailyReport()
+
+DECLARE totalEnergy = 0
+DECLARE cost
+DECLARE surcharge = 0
+
+FOR i = 0 TO equipmentCount - 1
+
+    energy = (watts[i] / 1000) * hoursUsed[i]
+
+    totalEnergy = totalEnergy + energy
+
+ENDFOR
+
+cost = totalEnergy * 0.50
+
+IF totalEnergy > 8 THEN
+    surcharge = cost * 0.20
+ENDIF
+
+finalCost = cost + surcharge
+
+DISPLAY "------ DAILY ENERGY REPORT ------"
+DISPLAY "Total Energy:", totalEnergy, "kWh"
+DISPLAY "Cost: RM", cost
+DISPLAY "Surcharge: RM", surcharge
+DISPLAY "Final Cost: RM", finalCost
+
+FOR i = 0 TO equipmentCount - 1
+
+    IF accumulatedHours[i] >= maintenanceInterval[i] THEN
+        DISPLAY "Maintenance Due for Equipment ID:", equipmentID[i]
+    ENDIF
+
+ENDFOR
+
+END FUNCTION
